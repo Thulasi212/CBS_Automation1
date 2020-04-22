@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="152029" started-at="2018-12-17T11:41:27Z" finished-at="2018-12-17T11:43:59Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="152029" started-at="2018-12-17T11:41:27Z" finished-at="2018-12-17T11:43:59Z">
+      <class name="com.app.Android_App.AppPayment">
+        <test-method status="PASS" signature="htmlReport()[pri:0, instance:com.app.Android_App.AppPayment@482f8f11]" name="htmlReport" is-config="true" duration-ms="236" started-at="2018-12-17T17:11:26Z" finished-at="2018-12-17T17:11:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- htmlReport -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.app.Android_App.AppPayment@482f8f11]" name="setUp" is-config="true" duration-ms="7914" started-at="2018-12-17T17:11:27Z" finished-at="2018-12-17T17:11:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="payment()[pri:0, instance:com.app.Android_App.AppPayment@482f8f11]" name="payment" duration-ms="130687" started-at="2018-12-17T17:11:35Z" finished-at="2018-12-17T17:13:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- payment -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.app.Android_App.AppPayment@482f8f11]" name="getResult" is-config="true" duration-ms="0" started-at="2018-12-17T17:13:45Z" finished-at="2018-12-17T17:13:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=payment status=SUCCESS method=AppPayment.payment()[pri:0, instance:com.app.Android_App.AppPayment@482f8f11] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.app.Android_App.AppPayment@482f8f11]" name="tearDown" is-config="true" duration-ms="13412" started-at="2018-12-17T17:13:45Z" finished-at="2018-12-17T17:13:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="reportflush()[pri:0, instance:com.app.Android_App.AppPayment@482f8f11]" name="reportflush" is-config="true" duration-ms="5131" started-at="2018-12-17T17:13:59Z" finished-at="2018-12-17T17:14:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reportflush -->
+      </class> <!-- com.app.Android_App.AppPayment -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

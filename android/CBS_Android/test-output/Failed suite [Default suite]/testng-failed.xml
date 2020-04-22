@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Default suite]]">
+  <test thread-count="5" name="Default test(failed)(failed)">
+    <classes>
+      <class name="TestScripts.DashBoard_Proifle_Completness">
+        <methods>
+          <include name="tearDown"/>
+          <include name="login"/>
+          <include name="setUp"/>
+          <include name="screenShot"/>
+          <include name="profile_Awaiting_response"/>
+        </methods>
+      </class> <!-- TestScripts.DashBoard_Proifle_Completness -->
+    </classes>
+  </test> <!-- Default test(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Default suite]] -->
