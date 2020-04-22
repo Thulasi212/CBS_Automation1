@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="236967" started-at="2019-12-04T04:44:04Z" finished-at="2019-12-04T04:48:01Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="236967" started-at="2019-12-04T04:44:04Z" finished-at="2019-12-04T04:48:01Z">
+      <class name="testscripts.RegisterTest">
+        <test-method status="PASS" signature="reportConfig()[pri:0, instance:testscripts.RegisterTest@649d209a]" name="reportConfig" is-config="true" duration-ms="127" started-at="2019-12-04T10:14:04Z" finished-at="2019-12-04T10:14:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reportConfig -->
+        <test-method status="PASS" signature="startUp()[pri:0, instance:testscripts.RegisterTest@649d209a]" name="startUp" is-config="true" duration-ms="3617" started-at="2019-12-04T10:14:04Z" finished-at="2019-12-04T10:14:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startUp -->
+        <test-method status="PASS" signature="registerTest()[pri:0, instance:testscripts.RegisterTest@649d209a]" name="registerTest" duration-ms="181348" started-at="2019-12-04T10:14:08Z" finished-at="2019-12-04T10:17:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTest -->
+        <test-method status="PASS" signature="smsTest(org.testng.ITestResult)[pri:0, instance:testscripts.RegisterTest@649d209a]" name="smsTest" is-config="true" duration-ms="51996" started-at="2019-12-04T10:17:09Z" finished-at="2019-12-04T10:18:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=registerTest status=SUCCESS method=RegisterTest.registerTest()[pri:0, instance:testscripts.RegisterTest@649d209a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- smsTest -->
+      </class> <!-- testscripts.RegisterTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

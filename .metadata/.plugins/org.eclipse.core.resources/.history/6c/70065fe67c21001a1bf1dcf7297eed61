@@ -1,0 +1,369 @@
+package CBS;
+import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import BasicFunctions.Base;
+
+public class WCSM_PI extends Base{
+	int maleagenumber;
+	int maleagenumberfromwcsm;
+	int maleagenumbertowcsm;
+	int finalincomepi;
+	int annualinc;
+	String annualinocmename, notworking;
+	String annualinocFROMwcsm;
+	int annualinc1;
+	float heightpiinc;
+
+	int one;
+	int second;
+	int third;
+	int four;
+	int ten;
+	int fifteen;
+	int a;
+	int b1;
+	int b;
+	int c;
+	int d;
+	int e;
+	int f;
+	int seventy;
+
+	String marital;
+	String Unmarried;
+	String WidoworWidower;
+	String Divorced;
+	String Separated;
+	String Doesntmatter;
+	private static final String Data = null;
+	public static WebDriver driver;
+	String driverExecutablePath = ".\\Resources\\chromedriver.exe";
+
+	ExtentReports report;
+	ExtentTest logger;
+
+	@BeforeMethod
+	public void setUp1() throws MalformedURLException {
+	System.setProperty("webdriver.chrome.driver", driverExecutablePath);
+	Map<String, String> mobileEmulation = new HashMap<String, String>();
+	mobileEmulation.put("deviceName", "Pixel 2");
+
+	ChromeOptions chromeOptions = new ChromeOptions();
+	chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+	chromeOptions.addArguments("--disable-notifications");
+	driver = new ChromeDriver(chromeOptions);
+
+	}
+
+	@Test
+	public void testUntitled() throws Throwable {
+	WCSM_POM rp = new WCSM_POM(driver);
+
+	Thread.sleep(5000);
+	driver.get("https://mstage.communitymatrimony.com/cbsmob/login.php");
+	driver.manage().window().maximize();
+
+	// login
+	WebElement e123 = driver.findElement(By.xpath("//*[@id='idEmail']"));
+	Actions a11 = new Actions(driver);
+	Thread.sleep(4000);
+	a11.sendKeys(e123, "AGR600400").build().perform();
+
+	Thread.sleep(4000);
+
+	WebElement d123 = driver.findElement(By.xpath("//*[@id='password1']"));
+	Thread.sleep(4000);
+	Actions bcd11 = new Actions(driver);
+	Thread.sleep(4000);
+	bcd11.sendKeys(d123, "cbstest").build().perform();
+
+	Thread.sleep(4000);
+	Base.click(rp.getLogin());
+
+	try {
+	Thread.sleep(6000);
+	driver.findElement(By.xpath(
+	"/html/body/ion-app/ng-component/page-dashboard/ion-header/header/ion-navbar/div[2]/ion-grid/ion-row/ion-col[5]"))
+	.click();
+
+	} catch (Exception e2) {
+	System.out.println("no element1");
+	}
+
+	try {
+	Thread.sleep(6000);
+	driver.findElement(By.xpath(
+	"/html/body/ion-app/ng-component/page-dashboard/ion-header/header/ion-navbar/div[2]/ion-grid/ion-row/ion-col[5]/a"))
+	.click();
+
+	} catch (Exception e2) {
+	System.out.println("no element2");
+	}
+
+	Thread.sleep(4000);
+	Base.click(rp.getEditpi());
+
+	Thread.sleep(4000);
+	WebElement ab = driver.findElement(By.xpath("//*[@id='linktobasic_details']/div[2]/ul/li[3]/div[2]"));
+	String gender = ab.getText();
+	System.out.println("gender in pi:" + gender);
+
+	Thread.sleep(4000);
+	WebElement ab1 = driver.findElement(By.xpath("//*[@id='linktobasic_details']/div[2]/ul/li[4]/div[2]"));
+	String age = ab1.getText();
+	System.out.println("age in pi:" + age);
+
+	String[] split = age.split(" Years");
+	System.out.println("age :" + split[0]);
+	int agepi = Integer.parseInt(split[0]);
+	System.out.println("finalage:" + agepi);
+
+	one = 1;
+	second = 2;
+	third = 3;
+	four = 4;
+	ten = 10;
+	fifteen = 15;
+	a = 18;
+	b1 = 21;
+	b = 29;
+	c = 39;
+	d = 49;
+	f = 60;
+	seventy = 70;
+
+	if (agepi >= a && agepi <= b1) {
+
+	System.out.println("Male profile age should be = From 21 to 31");
+
+	} else if (agepi > b1 && agepi < b) {
+
+	System.out.println("Male profile age should be = From " + (agepi - one) + " To " + (agepi + ten));
+	} else if (agepi > b && agepi < c) {
+
+	System.out.println("Male profile age should be = From " + (agepi - second) + " To " + (agepi + ten));
+
+	} else if (agepi > c && agepi < d) {
+
+	System.out.println("Male profile age should be = From " + (agepi - third) + " To " + (agepi + ten));
+	} else if (agepi > d && agepi < e) {
+
+	System.out.println("Male profile age should be = From " + (agepi - four) + " To " + (agepi + fifteen));
+	} else if (agepi > f) {
+
+	System.out.println("Male profile age should be = From " + (agepi - four) + " To 70");
+
+	}
+
+	Thread.sleep(4000);
+	WebElement bc = driver.findElement(By.xpath("//*[@id='linktobasic_details']/div[2]/ul/li[7]/div[2]"));
+	String marital = bc.getText();
+	System.out.println("marital status in pi:" + marital);
+
+	Thread.sleep(4000);
+	WebElement cd = driver.findElement(By.xpath("(//div[contains(text(),'Education')]//following::div[1])[1]"));
+	String education = cd.getText();
+	System.out.println("education in pi:" + education);
+
+	Thread.sleep(4000);
+	try {
+	WebElement cd1 = driver.findElement(By.xpath("//div[contains(text(),'Occupation')]//following::div[1]"));
+	String occupation = cd1.getText();
+	System.out.println("occupation in pi:" + occupation);
+	} catch (Exception e) {
+	System.out.println("occupation is not specified");
+	}
+
+
+	Thread.sleep(4000);
+	WebElement cd11 = driver.findElement(By.xpath("(//div[contains(text(),'Income')]//following::div[1])[1]"));
+	String income = cd11.getText();
+	System.out.println("income in pi:" + income);
+	try {
+	String[] aaa = income.split(" - ");
+	String aab = aaa[0].toString().trim();
+	String[] aac = aab.split("Rs. ");
+	String aad = aac[1].toString().trim();
+	int annualinc = Integer.parseInt(aad);
+	System.out.println("PI income from is = " + annualinc);
+
+	String[] split5 = income.split(" - ");
+	System.out.println("income1:" + split5[1]);
+	String[] split6 = split5[1].split(" Lakhs");
+	System.out.println("final income in pi:" + split6[0]);
+	int finalincomepi = Integer.parseInt(split6[0]);
+	System.out.println("incomepi :" + finalincomepi);
+	} catch (Exception e) {
+	System.out.println("Annual income is not specified....");
+	}
+
+	// height
+	// WebElement hei=driver.findElement(By.xpath("//*[@id='linktobasic_details']/div[2]/ul/li[5]/div[2]"));
+	// String hei1=hei.getText();
+	// System.out.println("height in pi:"+hei1);
+	// String[] split10=hei1.split(" ft");
+	// try {
+	// String[] split12=hei1.split("6 ft ");
+	// System.out.println("height in pi with inches:"+split12[0]);
+	// float heightpiinc=Integer.parseInt(split12[0]);
+	// } catch (Exception e) {
+	// System.out.println("no inches");
+	// }
+	//
+	//
+	// int heightpi=Integer.parseInt(split10[0]);
+	// String finalheihhtpi=(heightpi+"."+heightpiinc);
+	//
+	// System.out.println("heightin pi:"+finalheihhtpi);
+	//
+
+	// dosham
+	// Thread.sleep(4000);
+	// WebElement dos=driver.findElement(By.xpath("//*[@id='wap-edit-profile']/div[3]/div[3]/div[2]/ul/li[5]/div[2]"));
+	// String dosh=dos.getText();
+	// System.out.println("income in pi:"+dosh);
+	//
+	//
+
+	Thread.sleep(4000);
+	WebElement de12 = driver.findElement(By.xpath("(//div[contains(text(),'Religion')]//following::div[1])[1]"));
+	String religionpi = de12.getText();
+	System.out.println("Religion in PI:" + religionpi);
+
+	// back
+	driver.findElement(By.xpath("//*[@id='historyBack']")).click();
+
+	try {
+	Thread.sleep(6000);
+	driver.findElement(By.xpath(
+	"/html/body/ion-app/ng-component/page-dashboard/ion-header/header/ion-navbar/div[2]/ion-grid/ion-row/ion-col[5]"))
+	.click();
+
+	} catch (Exception e2) {
+	System.out.println("no element1");
+	}
+
+	try {
+	Thread.sleep(6000);
+	driver.findElement(By.xpath(
+	"/html/body/ion-app/ng-component/page-dashboard/ion-header/header/ion-navbar/div[2]/ion-grid/ion-row/ion-col[5]/a"))
+	.click();
+
+	} catch (Exception e2) {
+	System.out.println("no element2");
+	}
+
+	Thread.sleep(4000);
+	Base.click(rp.getSetting());
+
+	/// Privacy setting
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//ion-label[contains(text(),'Privacy Settings')]")).click();
+
+	// edit
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text(),'EDIT')]")).click();
+
+	// Thread.sleep(4000);
+	// BaseTest.click(rp.getWhocanseeme());
+
+	Thread.sleep(4000);
+	WebElement agefrom = driver.findElement(By.xpath("(//div[@class='frmto'])[1]"));
+	String wcagefrom = agefrom.getText();
+	System.out.println("Age from in wcsm:" + wcagefrom);
+	String[] split3 = wcagefrom.split(" years");
+	int maleagenumberfromwcsm = Integer.parseInt(split3[0]);
+	System.out.println("wcsmstartage:" + maleagenumberfromwcsm);
+
+	Thread.sleep(4000);
+	WebElement ageto = driver.findElement(By.xpath("(//div[@class='frmto'])[2]"));
+	String wcageto = ageto.getText();
+	System.out.println("Age to in wcsm:" + wcageto);
+	String[] split4 = wcageto.split(" years");
+	System.out.println("wcsmendage:" + split4[0]);
+	int maleagenumbertowcsm = Integer.parseInt(split4[0]);
+
+	Thread.sleep(8000);
+	if (agepi >= a && agepi <= b1 && maleagenumberfromwcsm == 21) {
+	if (agepi >= a && agepi <= b1 && maleagenumberfromwcsm == 21) {
+	System.out.println("18 to 21 female minor matched");
+
+	} else {
+	System.out.println("18 to 21 female minor not matched");
+	}
+	} else if (agepi >= b1 && agepi <= b) {
+	if (agepi >= b1 && agepi <= b && agepi - one == maleagenumberfromwcsm
+	&& agepi + ten == maleagenumbertowcsm) {
+	System.out.println("21 to 29 female matched");
+
+	} else {
+	System.out.println("21 to 29 female not matched");
+	}
+
+	} else if (agepi >= b && agepi <= c) {
+	if (agepi >= b && agepi <= c && agepi - second == maleagenumberfromwcsm
+	&& agepi + ten == maleagenumbertowcsm) {
+	System.out.println("age from 31 to 39 matched");
+
+	} else {
+	System.out.println("age from 31 to 39 not matched");
+	}
+
+	} else if (agepi >= c && agepi <= d) {
+
+	if (agepi >= c && agepi <= d) {
+	System.out.println("age from 41 to 49 matched");
+
+	} else {
+	System.out.println("age from 41 to 49 not matched");
+	}
+
+	Thread.sleep(4000);
+	} else if (agepi >= d && agepi <= f) {
+	if (agepi >= d && agepi <= f && agepi - third == maleagenumberfromwcsm
+	&& agepi + fifteen == maleagenumbertowcsm) {
+	System.out.println("age from 49 to 60 matched");
+
+	} else {
+	System.out.println("age from 49 to 60 not matched");
+	}
+
+	} else if (agepi > f) {
+	if (agepi > f && agepi - four == maleagenumberfromwcsm && maleagenumbertowcsm == 70) {
+	System.out.println("age over 70");
+
+	} else {
+	System.out.println("age over 70 not matched");
+	}
+
+	}
+
+	Thread.sleep(4000);
+	WebElement marital1 = driver.findElement(By.xpath("(//div[@class='openPopUp_values no-break_line'])[1]"));
+	String maritalwcsm = marital1.getText();
+	System.out.println("marital status in wcsm :" + maritalwcsm);
+
+	boolean Unmarriedwcsm = driver.findElement(By.xpath("(//div[@class='openPopUp_values no-break_line'])[1]"))
+	.isSelected();
+	boolean Unmarriedwcsmfalse = driver.findElement(By.xpath("(//div[@class='openPopUp_values no-break_line'])[1]"))
+	.isSelected();
+	if (Unmarriedwcsm == true) {
+		
+	}
+	}
+
+}

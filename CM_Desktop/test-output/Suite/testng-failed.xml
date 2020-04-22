@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.cm.testscripts.InboxTest8">
+        <methods>
+          <include name="startUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.cm.testscripts.InboxTest8 -->
+      <class name="com.cm.testscripts.InboxTest4">
+        <methods>
+          <include name="startUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.cm.testscripts.InboxTest4 -->
+      <class name="com.cm.testscripts.InboxTest5">
+        <methods>
+          <include name="startUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.cm.testscripts.InboxTest5 -->
+      <class name="com.cm.testscripts.InboxTest1">
+        <methods>
+          <include name="startUp"/>
+          <include name="inboxInterests_S1Test"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.cm.testscripts.InboxTest1 -->
+      <class name="com.cm.testscripts.InboxTest3">
+        <methods>
+          <include name="startUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.cm.testscripts.InboxTest3 -->
+      <class name="com.cm.testscripts.InboxTest6">
+        <methods>
+          <include name="startUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.cm.testscripts.InboxTest6 -->
+      <class name="com.cm.testscripts.InboxTest2">
+        <methods>
+          <include name="startUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.cm.testscripts.InboxTest2 -->
+      <class name="com.cm.testscripts.InboxTest7">
+        <methods>
+          <include name="startUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.cm.testscripts.InboxTest7 -->
+      <class name="com.cm.testscripts.MatchesS2Test">
+        <methods>
+          <include name="reportConfig"/>
+          <include name="startUp"/>
+          <include name="getResult"/>
+          <include name="reportflush"/>
+        </methods>
+      </class> <!-- com.cm.testscripts.MatchesS2Test -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

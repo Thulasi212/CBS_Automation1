@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test case report</title>
+    <style>#feature-container {
+    padding: 5px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+}
+
+#table-container_wrapper .row:nth-of-type(1) {
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-top: 10px;
+}
+
+#table-container_wrapper .row:nth-of-type(3) {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.panel-heading {
+    width: auto;
+}
+#container-chart {
+    width: 98%;
+}
+table tr {
+    height: 25px;
+}
+#charts {
+    padding 15px;
+}
+#charts div {
+    float: left;
+    width: 49%;
+}
+.back-to-top {
+    background: none;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    z-index: 100;
+    display: none;
+    text-decoration: none;
+}
+.back-to-top i {
+    font-size: 60px;
+}
+.forDrop {
+    cursor: pointer;
+    cursor: hand;
+}
+#tags-toggle {
+    cursor: pointer;
+    cursor: hand;
+}
+pre {
+    max-height: 450px;
+}
+.step-location {
+    color: #aaa;
+    font-family: verdana;
+    font-size: 11px;
+    margin-left: 15px;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    float: left;
+    height: 60px;
+    background-color: #f5f5f5;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    text-align: center;
+}
+</style>
+  </head>
+  <body>
+    <ul class="nav nav-tabs">
+  <li role="presentation">
+    <a href="#" onClick="window.location.assign(window.location.href.split('testng-reports-with-handlebars')[0]);">
+      Go back!
+    </a>
+  </li>
+  <li id="testsByClass" role="presentation" class="">
+    <a href="testsByClassOverview.html">Tests by class overview report</a>
+  </li>
+  <li id="testsByName" role="presentation" class="">
+    <a href="testsByNameOverview.html">Tests by name overview report</a>
+  </li>
+  <li id="summaryFeature" role="presentation" class="">
+    <a href="#">Test Case report: </a>
+  </li>
+</ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip({
+      delay: { "show": 1000, "hide": 100 }
+    });
+  });
+
+  $(function() {
+    $('#toggle-collapsed').change(function() {
+      if ($(this).prop('checked')) {
+        $('.collapseMagic').collapse('hide');
+      } else {
+        $('.collapseMagic').collapse('show');
+      }
+    });
+  });
+
+  $(function() {
+    $('#toggle-collapsed2').change(function() {
+      if ($(this).prop('checked')) {
+        $('.collapseMagic2').collapse('hide');
+      } else {
+        $('.collapseMagic2').collapse('show');
+      }
+    });
+  });
+
+  $(function() {
+    var pageTitle = document.title;
+
+    switch(pageTitle) {
+      case 'Tests by class overview report':
+        $('#testsByClass').addClass('active');
+        $('#testsByName').removeClass();
+        $('#summaryFeature').removeClass().addClass('disabled');
+        break;
+
+      case 'Tests by name overview report':
+        $('#testsByName').addClass('active');
+        $('#testsByClass').removeClass();
+        $('#summaryFeature').removeClass().addClass('disabled');
+        break;
+
+      case 'Test case report':
+        $('#testsByClass').removeClass();
+        $('#summaryFeature').addClass('active');
+
+        var toAdd = $('.panel-title>p').html();
+        var current = $('#summaryFeature>a').html();
+        $('#summaryFeature>a').html(current + toAdd);
+
+        var all = $('#testsByClass>a');
+        all.attr('href', '../' + all.attr('href'));
+
+        var all = $('#testsByName>a');
+        all.attr('href', '../' + all.attr('href'));
+
+        $('#summaryFeature>a').addClass('active');
+        break;
+    }
+  });
+</script>
+
+
+    <div id="feature-container" class="panel panel-primary">
+      <div class="panel-heading">
+        <input checked
+          id="toggle-collapsed"
+          data-size="mini"
+          data-toggle="toggle"
+          data-on="<span title='Click to expand all test cases'>Expand</span>"
+          data-off="<span title='Click to collapse all test cases'>Collapse</span>"
+          type="checkbox"
+          data-style="slow">
+
+          <input checked
+          id="toggle-collapsed2"
+          data-size="mini"
+          data-toggle="toggle"
+          data-on="<span title='Click to show all config steps'>Show configs</span>"
+          data-off="<span title='Click to hide all config steps'>Hide configs</span>"
+          type="checkbox"
+          data-style="slow"
+          data-width="100">
+          <span class="badge badge-success pull-right">00 h : 00 m : 23 s : 189 ms</span>
+        <h4 class="panel-title">
+          <p>
+            testscripts.LoginTest
+          </p>
+        </h4>
+      </div>
+      <div class="panel-body">
+        <ul class="list-group">
+          
+          <div class="collapseMagic2 collapse">
+            <li data-toggle="tooltip" data-placement="top" title="This test has passed"
+              class="scenario
+                list-group-item 
+                list-group-item-success">
+              <span class="forDrop" data-target="#10d39bbc-d365-4998-ab8a-3a65f95b55f2" data-toggle="collapse">
+                <i class="glyphicon glyphicon-chevron-right"></i>
+                reportConfig
+              </span>
+              <span class="label label-success pull-right">
+                00 h : 00 m : 00 s : 138 ms
+              </span>
+              <div id="10d39bbc-d365-4998-ab8a-3a65f95b55f2" class="collapseMagic collapse">
+                
+                
+                <ul class="steps list-group">
+                  <li class="list-group-item
+                        list-group-item-success">
+                    <span>Reporter output log</span>
+                      <pre></pre>
+                    </li>
+                  </ul>
+                
+                
+              </div>
+            </li>
+          </div>
+          
+          <div class="collapseMagic2 collapse">
+            <li data-toggle="tooltip" data-placement="top" title="This test has passed"
+              class="scenario
+                list-group-item 
+                list-group-item-success">
+              <span class="forDrop" data-target="#5d7d94bf-9f14-45f6-9a83-a7cd67f873b4" data-toggle="collapse">
+                <i class="glyphicon glyphicon-chevron-right"></i>
+                startUp
+              </span>
+              <span class="label label-success pull-right">
+                00 h : 00 m : 02 s : 633 ms
+              </span>
+              <div id="5d7d94bf-9f14-45f6-9a83-a7cd67f873b4" class="collapseMagic collapse">
+                
+                
+                <ul class="steps list-group">
+                  <li class="list-group-item
+                        list-group-item-success">
+                    <span>Reporter output log</span>
+                      <pre></pre>
+                    </li>
+                  </ul>
+                
+                
+              </div>
+            </li>
+          </div>
+          
+          <div class="nada">
+            <li data-toggle="tooltip" data-placement="top" title="This test has passed"
+              class="scenario
+                list-group-item 
+                list-group-item-success">
+              <span class="forDrop" data-target="#90d8156e-6766-467c-90e6-ffd7dd6f28c9" data-toggle="collapse">
+                <i class="glyphicon glyphicon-chevron-right"></i>
+                loginTest
+              </span>
+              <span class="label label-success pull-right">
+                00 h : 00 m : 15 s : 966 ms
+              </span>
+              <div id="90d8156e-6766-467c-90e6-ffd7dd6f28c9" class="collapseMagic collapse">
+                
+                
+                <ul class="steps list-group">
+                  <li class="list-group-item
+                        list-group-item-success">
+                    <span>Reporter output log</span>
+                      <pre></pre>
+                    </li>
+                  </ul>
+                
+                
+              </div>
+            </li>
+          </div>
+          
+          <div class="collapseMagic2 collapse">
+            <li data-toggle="tooltip" data-placement="top" title="This test has passed"
+              class="scenario
+                list-group-item 
+                list-group-item-success">
+              <span class="forDrop" data-target="#4b6c9367-6cc6-4379-8a26-b0e1a6a9deee" data-toggle="collapse">
+                <i class="glyphicon glyphicon-chevron-right"></i>
+                getResult
+              </span>
+              <span class="label label-success pull-right">
+                00 h : 00 m : 00 s : 04 ms
+              </span>
+              <div id="4b6c9367-6cc6-4379-8a26-b0e1a6a9deee" class="collapseMagic collapse">
+                
+                
+                <ul class="steps list-group">
+                  <li class="list-group-item
+                        list-group-item-success">
+                    <span>Reporter output log</span>
+                      <pre></pre>
+                    </li>
+                  </ul>
+                
+                
+              </div>
+            </li>
+          </div>
+          
+          <div class="collapseMagic2 collapse">
+            <li data-toggle="tooltip" data-placement="top" title="This test has passed"
+              class="scenario
+                list-group-item 
+                list-group-item-success">
+              <span class="forDrop" data-target="#34ec6d34-fc8f-4afa-88df-b958b148aeee" data-toggle="collapse">
+                <i class="glyphicon glyphicon-chevron-right"></i>
+                reportflush
+              </span>
+              <span class="label label-success pull-right">
+                00 h : 00 m : 04 s : 448 ms
+              </span>
+              <div id="34ec6d34-fc8f-4afa-88df-b958b148aeee" class="collapseMagic collapse">
+                
+                
+                <ul class="steps list-group">
+                  <li class="list-group-item
+                        list-group-item-success">
+                    <span>Reporter output log</span>
+                      <pre></pre>
+                    </li>
+                  </ul>
+                
+                
+              </div>
+            </li>
+          </div>
+          
+        </ul>
+      </div>
+    </div>
+    <a href="#" class="back-to-top" style="display: none;">
+      <i title="Scroll UP" class="glyphicon glyphicon-triangle-top"></i>
+    </a>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-63510418-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    <script>
+  jQuery(document).ready(function() {
+    var offset = 250;
+    var duration = 300;
+    jQuery(window).scroll(function() {
+      if (jQuery(this).scrollTop() > offset) {
+        jQuery('.back-to-top').fadeIn(duration);
+      } else {
+        jQuery('.back-to-top').fadeOut(duration);
+      }
+  });
+
+  jQuery('.back-to-top').click(function(event) {
+    event.preventDefault();
+      jQuery('html, body').animate({scrollTop: 0}, duration);
+      return false;
+    })
+  });
+</script>
+    <footer class="footer">
+  <div class="container">
+    <span class="text-muted">
+      <p>Page generated at: 2019-04-08 10:32:41.533 Asia/Calcutta</p>
+    </span>
+  </div>
+</footer>
+  </body>
+</html>

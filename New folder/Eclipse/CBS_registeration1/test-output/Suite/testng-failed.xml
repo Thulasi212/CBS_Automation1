@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="testscripts.RetryListenerClass"/>
+  </listeners>
+  <test name="Test(failed)">
+    <classes>
+      <class name="testscripts.RegisterTest">
+        <methods>
+          <include name="registerTest"/>
+          <include name="startUp"/>
+          <include name="smsTest"/>
+          <include name="reportConfig"/>
+        </methods>
+      </class> <!-- testscripts.RegisterTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

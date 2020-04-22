@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="73202" started-at="2019-12-05T18:04:24Z" finished-at="2019-12-05T18:05:37Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="73202" started-at="2019-12-05T18:04:24Z" finished-at="2019-12-05T18:05:37Z">
+      <class name="com.testscripts.Bug_Report">
+        <test-method status="PASS" signature="htmlReport()[pri:0, instance:com.testscripts.Bug_Report@6a2bcfcb]" name="htmlReport" is-config="true" duration-ms="85" started-at="2019-12-05T18:04:22Z" finished-at="2019-12-05T18:04:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- htmlReport -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testscripts.Bug_Report@6a2bcfcb]" name="setUp" is-config="true" duration-ms="2533" started-at="2019-12-05T18:04:22Z" depends-on-methods="com.base.BaseTest.htmlReport" finished-at="2019-12-05T18:04:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="maiolcode()[pri:0, instance:com.testscripts.Bug_Report@6a2bcfcb]" name="maiolcode" duration-ms="73194" started-at="2019-12-05T18:04:24Z" finished-at="2019-12-05T18:05:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- maiolcode -->
+      </class> <!-- com.testscripts.Bug_Report -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

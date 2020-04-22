@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;chromedriver.exe&apos; to &apos;Resources&apos;&#x0D;&#x0A;- Original project: &apos;CM_Desktop&apos;&#x0D;&#x0A;- Destination element: &apos;Resources&apos;&#x0D;&#x0A;- Original element: &apos;chromedriver.exe&apos;" description="Copy file" element1="Resources/chromedriver.exe" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1574854443531" target="/CBSIOS_3.1/Resources" units="0" version="1.0"/>
+</session>
